@@ -50,6 +50,17 @@ only be parsed once instace of twice.
 Please not that this is not the best way for adding `access` tags. Use [gulp-cordova-access](https://github.com/SamVerschueren/gulp-cordova-access)
 for that.
 
+## API
+
+### xml(tags)
+
+#### tags
+
+*Required*  
+Type: `string|string[]`
+
+A raw xml tag or an array of raw xml tags.
+
 ## Related
 
 See [`gulp-cordova`](https://github.com/SamVerschueren/gulp-cordova) for the full list of available packages.
