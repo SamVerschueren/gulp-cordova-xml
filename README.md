@@ -1,6 +1,54 @@
 # gulp-cordova-xml
 
-> Adds raw xml to your config.xml
+> Adds raw xml tags to your config.xml
+
+## Installation
+
+```bash
+npm install --save-dev gulp-cordova-xml
+```
+
+## Usage
+
+The following example will add two `access` tags to the config.xml file.
+
+```xml
+var gulp = require('gulp'),
+    create = require('gulp-cordova-create'),
+    xml = require('gulp-cordova-xml');
+
+gulp.task('build', function() {
+    return gulp.src('dist')
+        .pipe(create())
+        .pipe(xml('<access origin="http://www.google.com" />'))
+        .pipe(xml('<access origin="http://www.github.com" />'));
+});
+```
+
+It's not possible to add two tags in one plugin call. If you want to do this, you should pass an array of
+tags as parameter.
+
+```xml
+var gulp = require('gulp'),
+    create = require('gulp-cordova-create'),
+    xml = require('gulp-cordova-xml');
+
+gulp.task('build', function() {
+    return gulp.src('dist')
+        .pipe(create())
+        .pipe(xml([
+					'<access origin="http://www.google.com" />',
+        			'<access origin="http://www.github.com" />'
+				  ]));
+});
+```
+
+Notice that this second method is faster then the first method. The reason for this is that everytime the plugin is called, 
+the config.xml file is parsed all over again. Because you only call the plugin once with the array-method, the config file will 
+only be parsed once instace of twice.
+
+Please not that this is not the best way for adding `access` tags. Use [gulp-cordova-access](https://github.com/SamVerschueren/gulp-cordova-access)
+for that.
 
 ## Related
 
