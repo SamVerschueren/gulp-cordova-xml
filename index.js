@@ -26,12 +26,18 @@ module.exports = function(xml) {
 
         cb();
     }, function(cb) {
+        // Make sure it is an array so we can iterate
+        xml = [].concat(xml);
+        
         try {
             // Load the config.xml file
             var config = new Config(path.join(project.path, 'config.xml'));
 
-            // Adds the raw xml to the config
-            config.addRawXML(xml);
+            // Iterate over the xml tags
+            xml.forEach(function(tag) {
+                // Add the tag to the config.xml file
+                config.addRawXML(tag);
+            });
             
             // Write the config file
             config.write(function() {
