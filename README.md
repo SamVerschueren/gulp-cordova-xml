@@ -12,7 +12,7 @@ npm install --save-dev gulp-cordova-xml
 
 The following example will add two `access` tags to the config.xml file.
 
-```xml
+```JavaScript
 var gulp = require('gulp'),
     create = require('gulp-cordova-create'),
     xml = require('gulp-cordova-xml');
@@ -28,7 +28,7 @@ gulp.task('build', function() {
 It's not possible to add two tags in one plugin call. If you want to do this, you should pass an array of
 tags as parameter.
 
-```xml
+```JavaScript
 var gulp = require('gulp'),
     create = require('gulp-cordova-create'),
     xml = require('gulp-cordova-xml');
