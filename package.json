@@ -1,6 +1,6 @@
 {
   "name": "gulp-cordova-xml",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Adds raw xml to your cordova config file.",
   "main": "index.js",
   "scripts": {
