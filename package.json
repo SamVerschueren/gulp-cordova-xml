@@ -26,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/SamVerschueren/gulp-cordova-xml/issues"
   },
-  "homepage": "https://github.com/SamVerschueren/gulp-cordova-xml"
+  "homepage": "https://github.com/SamVerschueren/gulp-cordova-xml",
+  "dependencies": {
+    "gulp-util": "^3.0.5",
+    "through2": "^2.0.0"
+  }
 }
