@@ -43,8 +43,8 @@ gulp.task('build', function() {
 });
 ```
 
-Notice that this second method is faster then the first method. The reason for this is that everytime the plugin is called, 
-the config.xml file is parsed all over again. Because you only call the plugin once with the array-method, the config file will 
+Notice that this second method is faster then the first method. The reason for this is that everytime the plugin is called,
+the config.xml file is parsed all over again. Because you only call the plugin once with the array-method, the config file will
 only be parsed once instace of twice.
 
 Please not that this is not the best way for adding `access` tags. Use [gulp-cordova-access](https://github.com/SamVerschueren/gulp-cordova-access)
@@ -56,7 +56,7 @@ for that.
 
 #### tags
 
-*Required*  
+*Required*
 Type: `string|string[]`
 
 A raw xml tag or an array of raw xml tags.

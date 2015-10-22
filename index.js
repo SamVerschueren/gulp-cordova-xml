@@ -3,51 +3,43 @@
 /**
  * Add raw xml to the config.xml file.
  *
- * @author Sam Verschueren      <sam.verschueren@gmail.com>
+ * @author Sam Verschueren	  <sam.verschueren@gmail.com>
  * @since  12 June 2015
  */
 
 // module dependencies
-var path = require('path'),
-    through = require('through2'),
-    gutil = require('gulp-util'),
-    Config = require('cordova-config');
+var path = require('path');
+var through = require('through2');
+var gutil = require('gulp-util');
+var Config = require('cordova-config');
 
 // export the module
-module.exports = function(xml) {
+module.exports = function (xml) {
+	return through.obj(function (file, enc, cb) {
+		// Pipe the file to the next step
+		this.push(file);
 
-    var project;
+		// Make sure it is an array so we can iterate
+		xml = [].concat(xml);
 
-    return through.obj(function(file, enc, cb) {
-        project = file;
+		try {
+			// Load the config.xml file
+			var config = new Config(path.join(file.path, 'config.xml'));
 
-        // Pipe the file to the next step
-        this.push(file);
+			// Iterate over the xml tags
+			xml.forEach(function (tag) {
+				// Add the tag to the config.xml file
+				config.addRawXML(tag);
+			});
 
-        cb();
-    }, function(cb) {
-        // Make sure it is an array so we can iterate
-        xml = [].concat(xml);
-        
-        try {
-            // Load the config.xml file
-            var config = new Config(path.join(project.path, 'config.xml'));
-
-            // Iterate over the xml tags
-            xml.forEach(function(tag) {
-                // Add the tag to the config.xml file
-                config.addRawXML(tag);
-            });
-            
-            // Write the config file
-            config.write(function() {
+			// Write the config file
+			config.write(function () {
 				// Call the callback
 				cb();
 			});
-        }
-        catch(err) {
-            // Return an error if something went wrong while parsing
-            cb(new gutil.PluginError('gulp-cordova-xml', err.message));
-        }
-    });
+		} catch (err) {
+			// Return an error if something went wrong while parsing
+			cb(new gutil.PluginError('gulp-cordova-xml', err.message));
+		}
+	});
 };
