@@ -56,7 +56,7 @@ for that.
 
 #### tags
 
-*Required*
+*Required*  
 Type: `string|string[]`
 
 A raw xml tag or an array of raw xml tags.
