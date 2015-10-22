@@ -4,7 +4,7 @@
   "description": "Adds raw xml to your cordova config file.",
   "main": "index.js",
   "scripts": {
-    "test": "xo"
+    "test": "xo && ava"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,13 @@
     "through2": "^2.0.0"
   },
   "devDependencies": {
+    "ava": "*",
+    "pify": "^2.2.0",
     "xo": "*"
+  },
+  "xo": {
+    "ignores": [
+      "test.js"
+    ]
   }
 }
