@@ -1,4 +1,4 @@
-# gulp-cordova-xml
+# gulp-cordova-xml [![Build Status](https://travis-ci.org/SamVerschueren/gulp-cordova-xml.svg)](https://travis-ci.org/SamVerschueren/gulp-cordova-xml)
 
 > Adds raw xml tags to your config.xml
 
