@@ -32,12 +32,12 @@
   "homepage": "https://github.com/SamVerschueren/gulp-cordova-xml",
   "dependencies": {
     "cordova-config": "^0.6.2",
-    "gulp-util": "^3.0.5",
+    "gulp-util": "^3.0.7",
     "through2": "^2.0.0"
   },
   "devDependencies": {
     "ava": "*",
-    "pify": "^2.2.0",
+    "pify": "^2.3.0",
     "xo": "*"
   },
   "xo": {
