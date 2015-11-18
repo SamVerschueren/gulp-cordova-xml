@@ -9,7 +9,7 @@ const file = path.join(__dirname, 'config.xml');
 const fixture = `<?xml version='1.0' encoding='utf-8'?><widget></widget>`;
 
 function xml(input) {
-	return pify(fs.writeFile)(file, fixture)
+	return pify(fs.writeFile, Promise)(file, fixture)
 		.then(function () {
 			return new Promise(function (resolve) {
 				const stream = fn(input);
