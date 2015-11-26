@@ -2,22 +2,24 @@
 
 > Adds raw xml tags to your config.xml
 
+
 ## Installation
 
 ```bash
 npm install --save-dev gulp-cordova-xml
 ```
 
+
 ## Usage
 
 The following example will add two `access` tags to the config.xml file.
 
-```JavaScript
-var gulp = require('gulp'),
-    create = require('gulp-cordova-create'),
-    xml = require('gulp-cordova-xml');
+```javascript
+const gulp = require('gulp');
+const create = require('gulp-cordova-create');
+const xml = require('gulp-cordova-xml');
 
-gulp.task('build', function() {
+gulp.task('build', () => {
     return gulp.src('dist')
         .pipe(create())
         .pipe(xml('<access origin="http://www.google.com" />'))
@@ -28,12 +30,12 @@ gulp.task('build', function() {
 It's not possible to add two tags in one plugin call. If you want to do this, you should pass an array of
 tags as parameter.
 
-```JavaScript
-var gulp = require('gulp'),
-    create = require('gulp-cordova-create'),
-    xml = require('gulp-cordova-xml');
+```javascript
+const gulp = require('gulp');
+const create = require('gulp-cordova-create');
+const xml = require('gulp-cordova-xml');
 
-gulp.task('build', function() {
+gulp.task('build', () => {
     return gulp.src('dist')
         .pipe(create())
         .pipe(xml([
@@ -61,13 +63,11 @@ Type: `string|string[]`
 
 A raw xml tag or an array of raw xml tags.
 
+
 ## Related
 
 See [`gulp-cordova`](https://github.com/SamVerschueren/gulp-cordova) for the full list of available packages.
 
-## Contributors
-
-- Sam Verschueren [<sam.verschueren@gmail.com>]
 
 ## License
 
